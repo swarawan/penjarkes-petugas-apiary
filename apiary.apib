@@ -1,80 +1,212 @@
 FORMAT: 1A
 HOST: https://polls.apiblueprint.org/
 
-# Penjarkes Petugas
+# Penjarkes Siswa
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+# Group Auth and Profile
 
-## Questions Collection [/questions]
+Mock API Untuk Penjarkes Siswa
 
-### List All Questions [GET]
+## Oauth [/oauth/token]
 
-+ Response 200 (application/json)
+### Request Access Token [POST]
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+This API provides access token for registration (client credential) and user authentication (password).
 
-### Create a New Question [POST]
++ Request Password Access Token (application/json)
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
+    + Attributes
+        + username (string) - Use this only for Login
+        + password (string) - Use this only for Login
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
+                "grant_type": "password",
+                "client_id": "{{ PASSWORD_GRANT_ID }}",
+                "client_secret": "{{ PASSWORD_GRANT_SECRET }}",
+                "username": "admin@gmail.com",
+                "password": "123456",
+                "scope": ""
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "token_type": "Bearer",
+                "expires_in": 1296000,
+                "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4YTIzMjk0OC02YmNiLTRiZjItYjAyNS0xMTU2NzQzZjY3OGUiLCJqdGkiOiI4YjQyNTNkNWM3YWY0NzMxMjBlNjI4YjQ4ZjcwMjgzNTFkYWU0MzU2N2Y0ZDhjNzY3ODdiYzFiOWVjZDc5YmY1OTdmMzE0YTkwZjY3ODRhMyIsImlhdCI6MTYwNzYzNzcwMSwibmJmIjoxNjA3NjM3NzAxLCJleHAiOjE2MDg5MzM3MDEsInN1YiI6IiIsInNjb3BlcyI6W119.ZkzvdlTbwIm3KwcEruRAEIp-hqhKfZ-JVUAtu3SF9QAWc5mbzbMJN58pLGcax_P5B9uZCDRF88UE5l-Z0l4tRQK-Iv1eGjrI6AzPlFzW2PdiuTk71Nxa-fA4eklwLkU_TjjSazVdL_f9szveCpTrSUXmVn77pUiZFsNjkVpK-m_fsc3bc1hv_ASlynsarbERkedeK0JRgKWsBb3gny_GnNI9rY9LAu-lCuMQC9N3SYVqiEwldNCCzrnj3QLjbmFN3hKZuNgWbZBOIs6JdUlx4njPHjha4iRgZapd8i7TZbzJTCv8V0rvAug7FtjICfNhyuSIS1jbbX7LLQ0HhQ9PDlnGGZb_lCROlNj_VRWrgQ44V5oaNOlPDQaxxWOc1K99oo5zpyAPaz30YRa3s7P61io4Vc5gxak7WnWYF883k1MvnGdKvV3g4kuKjBUwg6Uxiox_vQRWEyxR498nw9pRMW2HH5VAJpG4Gre6Jj_YIbOrVy1Ih7IsGHpCCk8UXrc_CkAniYdrKx5k9ZAQE4FasgG_Hfp7a6yvdsNORTSFu1vU6T2Rq7JV7msTyJMTo6s8JHmlzdKzrJlIYgWgYnrC6rdLo7VP04sKWyqnpKpn-IINYpmFoOvB-z6jGIYZKdH0Wag8vUlULHPT43IVVHGo6_jXdUPBb8-k5e6P4rXqp4A",
+                "refresh_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI4YTIzMjk0OC02YmNiLTRiZjItYjAyNS0xMTU2NzQzZjY3OGUiLCJqdGkiOiI4YjQyNTNkNWM3YWY0NzMxMjBlNjI4YjQ4ZjcwMjgzNTFkYWU0MzU2N2Y0ZDhjNzY3ODdiYzFiOWVjZDc5YmY1OTdmMzE0YTkwZjY3ODRhMyIsImlhdCI6MTYwNzYzNzcwMSwibmJmIjoxNjA3NjM3NzAxLCJleHAiOjE2MDg5MzM3MDEsInN1YiI6IiIsInNjb3BlcyI6W119.ZkzvdlTbwIm3KwcEruRAEIp-hqhKfZ-JVUAtu3SF9QAWc5mbzbMJN58pLGcax_P5B9uZCDRF88UE5l-Z0l4tRQK-Iv1eGjrI6AzPlFzW2PdiuTk71Nxa-fA4eklwLkU_TjjSazVdL_f9szveCpTrSUXmVn77pUiZFsNjkVpK-m_fsc3bc1hv_ASlynsarbERkedeK0JRgKWsBb3gny_GnNI9rY9LAu-lCuMQC9N3SYVqiEwldNCCzrnj3QLjbmFN3hKZuNgWbZBOIs6JdUlx4njPHjha4iRgZapd8i7TZbzJTCv8V0rvAug7FtjICfNhyuSIS1jbbX7LLQ0HhQ9PDlnGGZb_lCROlNj_VRWrgQ44V5oaNOlPDQaxxWOc1K99oo5zpyAPaz30YRa3s7P61io4Vc5gxak7WnWYF883k1MvnGdKvV3g4kuKjBUwg6Uxiox_vQRWEyxR498nw9pRMW2HH5VAJpG4Gre6Jj_YIbOrVy1Ih7IsGHpCCk8UXrc_CkAniYdrKx5k9ZAQE4FasgG_Hfp7a6yvdsNORTSFu1vU6T2Rq7JV7msTyJMTo6s8JHmlzdKzrJlIYgWgYnrC6rdLo7VP04sKWyqnpKpn-IINYpmFoOvB-z6jGIYZKdH0Wag8vUlULHPT43IVVHGo6_jXdUPBb8-k5e6P4rXqp4A"
+            }
+
++ Response 401 (application/json)
+
+    + Body
+
+            {
+                "error": "invalid_client",
+                "error_description": "Client authentication failed",
+                "message": "Client authentication failed"
+            }
+
+## Profile [/api-pkrs/petugas/profile]
+
+### Get User Profile [GET]
+
+Call this API to get logged in user profile.
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "updated_at": "2020-12-20 18:19:20",
+                "data": {
+                    "nama_lengkap": "Haryo Budi Petugas",
+                    "email": "budi_petugas@gmail.com",
+                    "nomor_telepon": "08123546569",
+                    "puskesmas": "Puskesmas Kebon Jeruk",
+                    "jabatan": "Pimpinan Puskesmas",
+                    "foto_profil": "https://randomuser.me/api/portraits/men/48.jpg"
+                }
+            }
+
+## Update Password [/api-pkrs/petugas/password]
+
+### Add Profile Picture [PUT]
+
++ Request Password (application/json)
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
+    + Body
+
+            {
+                "password": "123123",
+                "password_confirmation": "123123"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true
+            }
+
+## Profile Picture [/api-pkrs/petugas/profile-picture]
+
+### Add Profile Picture [POST]
+
+Upload profile picture using multipart form data
+
++ Request (multipart/form-data; boundary={boundary value})
+
+    + Headers
+
+            Authorization: Bearer {your-access token}
+
+    + Body
+
+            Content-Disposition: form-data; name="profile_picture"; filename="/tonjoo/kesrem-who/padmanaba.jpg"
+            Content-Type: image/jpeg (according to the type of the uploaded file)
+
+            {file content}
+            --{boundary value}
+
++ Response 200 (application/json)
+
+            {
+                "success": true,
+                "updated_at": "2020-12-20 16:19:20",
+                "data": {
+                    "foto_profil": "https://randomuser.me/api/portraits/men/48.jpg"
+                }
+            }
+
+# Group Statistik
+
+## Statistik [/api-pkrs/petugas/statistik]
+
+### Request statistik di halaman home [GET]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "updated_at": "2020-12-20 16:19:20",
+                "data": {
+                    "total_siswa_terjaring" : "157",
+                    "total_sekolah" : "14",
+                    "statistik_pemeriksaan" : "Januari 2020",
+                    "statistik_sekolah" : [60,120,200,75,300],
+                    "statistik_siswa_laki_laki" : [100,200,150,300,250],
+                    "statistik_siswa_perempuan" : [50,100,150,75,200]
+                }
+            }
+
+# Group Tautan Formulir Penjarkes
+
+## Periode [/api-pkrs/petugas/share_link]
+
+### Request Periode Catatan Kesehatan [GET]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "updated_at": "2020-12-20 16:19:20",
+                "data": [
                     {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
+                        "id" : 1,
+                        "nama_sekolah" : "SMAN 36 Jakarta",
+                        "npsn" : "101992013",
+                        "periode" : "2020"
+                    },
+                    {
+                        "id" : 2,
+                        "nama_sekolah" : "SMAN 37 Jakarta",
+                        "npsn" : "101992014",
+                        "periode" : "2020"
+                    },
+                    {
+                        "id" : 3,
+                        "nama_sekolah" : "SMAN 38 Jakarta",
+                        "npsn" : "101992015",
+                        "periode" : "2020"
+                    },
+                    {
+                        "id" : 4,
+                        "nama_sekolah" : "SMAN 39 Jakarta",
+                        "npsn" : "101992016",
+                        "periode" : "2020"
                     }
                 ]
             }
