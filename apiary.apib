@@ -168,6 +168,10 @@ Upload profile picture using multipart form data
 
 ## Daftar sekolah [/api-pkrs/petugas/sekolah]
 
++ Parameters
+    + page
+    + limit 
+
 ### Request daftar sekolah [GET]
 
 Digunakan untuk daftar sekolah di halaman RHP dan share link
@@ -329,6 +333,22 @@ Digunakan untuk daftar sekolah di halaman RHP dan share link
                         "kelompok_pemeriksaan" : "formal",
                         "terkirim" : true,
                         "share_link_url" : "https://example.com/6da9619a5f02"
+                    },
+                    {
+                        "id" : 10,
+                        "nama_sekolah" : "SMAN 45 Jakarta",
+                        "npsn" : "101992016",
+                        "periode" : "2020",
+                        "alamat" : "Jakarta Utara",
+                        "nomor_telepon" : "021221905",
+                        "total_laki_laki" : 64,
+                        "total_perempuan" : 91,
+                        "sudah_diperiksa" : 20,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal",
+                        "terkirim" : true,
+                        "share_link_url" : "https://example.com/5f019a9626da"
                     }
                 ]
             }
