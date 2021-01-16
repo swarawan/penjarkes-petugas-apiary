@@ -467,7 +467,250 @@ Digunakan untuk daftar sekolah di halaman RHP dan share link
                 ]
             }
 
-## Form Per Siswa [/api-pkrs/petugas/siswa/{idSiswa}]
+# Group Form and Kuesioner
+
+## Enums [/api-pkrs/penjarkes/enums]
+
+### Get All Enums [GET]
+
+Get all enums used in application
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
++ Response 200 (application/json)
+
+            {
+                "success": true,
+                "updated_at": "2020-12-20 18:20:20",
+                "data": [{
+                    "slug": "golongan_darah",
+                    "data": [{
+                            "id": "a",
+                            "text": "A"
+                        },
+                        {
+                            "id": "b",
+                            "text": "B"
+                        },
+                        {
+                            "id": "ab",
+                            "text": "AB"
+                        },
+                        {
+                            "id": "o",
+                            "text": "O"
+                        }
+                    ]
+                }, {
+                    "slug": "tingkat_pendidikan",
+                    "data": [{
+                            "id": "i",
+                            "text": "I"
+                        },
+                        {
+                            "id": "ii",
+                            "text": "II"
+                        },
+                        {
+                            "id": "iii",
+                            "text": "III"
+                        },
+                        {
+                            "id": "iv",
+                            "text": "IV"
+                        },
+                        {
+                            "id": "v",
+                            "text": "V"
+                        },
+                        {
+                            "id": "vi",
+                            "text": "VI"
+                        },
+                        {
+                            "id": "vii",
+                            "text": "VII"
+                        },
+                        {
+                            "id": "viii",
+                            "text": "VIII"
+                        },
+                        {
+                            "id": "ix",
+                            "text": "IX"
+                        },
+                        {
+                            "id": "x",
+                            "text": "X"
+                        },
+                        {
+                            "id": "xi",
+                            "text": "XI"
+                        },
+                        {
+                            "id": "xii",
+                            "text": "XII"
+                        }
+                    ]
+                }, {
+                    "slug": "jenis_kelamin",
+                    "data": [{
+                            "id": "laki-laki",
+                            "text": "Laki-laki"
+                        },
+                        {
+                            "id": "perempuan",
+                            "text": "Perempuan"
+                        }
+                    ]
+                }, {
+                    "slug": "rhesus",
+                    "data": [{
+                            "id": "positif",
+                            "text": "Positif"
+                        },
+                        {
+                            "id": "negatif",
+                            "text": "Negatif"
+                        }
+                    ]
+                }, {
+                    "slug": "ya_tidak",
+                    "data": [{
+                            "id": "ya",
+                            "text": "Ya"
+                        },
+                        {
+                            "id": "tidak",
+                            "text": "Tidak"
+                        }
+                    ]
+                }, {
+                    "slug": "disabilitas",
+                    "data": [{
+                            "id": "netra",
+                            "text": "Netra"
+                        },
+                        {
+                            "id": "rungu",
+                            "text": "Rungu"
+                        },
+                        {
+                            "id": "rungu_wicara",
+                            "text": "Rungu Wicara"
+                        },
+                        {
+                            "id": "grahita",
+                            "text": "Grahita"
+                        },
+                        {
+                            "id": "daksa",
+                            "text": "Daksa"
+                        },
+                        {
+                            "id": "autisme",
+                            "text": "Autisme"
+                        },
+                        {
+                            "id": "ganda",
+                            "text": "Ganda"
+                        },
+                        {
+                            "id": "adhd",
+                            "text": "Adhd"
+                        }
+                    ]
+                },{
+                    "slug": "jenjang-pendidikan",
+                    "data": [{
+                            "id": "sd",
+                            "text": "SD"
+                        },
+                        {
+                            "id": "smp",
+                            "text": "SMP"
+                        },
+                        {
+                            "id": "sma",
+                            "text": "SMA"
+                        }
+                    ]
+                },{
+                    "slug": "induk-institusi-pendidikan",
+                    "data": [{
+                            "id": "kemenag",
+                            "text": "Kementerian Agama"
+                        },
+                        {
+                            "id": "kemendikbud",
+                            "text": "Kementerian Pendidikan dan Kebudayaan"
+                        },
+                        {
+                            "id": "sma",
+                            "text": "SMA"
+                        }
+                    ]
+                },{
+                    "slug": "jenis-sekolah",
+                    "data": [{
+                            "id": "formal",
+                            "text": "Formal"
+                        },
+                        {
+                            "id": "non-formal",
+                            "text": "Non-Formal"
+                        }
+                    ]
+                }]
+            }
+
+## Form Simpan Identitas Anak [/api-pkrs/penjarkes/identitas/siswa/{idSiswa}]
+
++ Parameters
+    + idSiswa (required, number, '1') ... id siswa
+
+### Post Identitas [POST]
+
+Post identitas siswa
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
+    + Body
+
+            {
+                "nama_lengkap_anak": "Haryo Budi",
+                "tempat_lahir": "Yogyakarta",
+                "tanggal_lahir": "2004-02-29",
+                "umur": 16,
+                "jenis_kelamin": "laki-laki",
+                "kelas": "x",
+                "golongan_darah": "a",
+                "rhesus": "negatif",
+                "is_disabilitas": false,
+                "disabilitas": null,
+                "nama_orang_tua_wali": "KRT Purwowinoto",
+                "sekolah" : "SMAN 7 Jakarta",
+                "alamat_sekolah" : "Jl. Haji Naim No.299",
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "message": "Identitas form saved"
+            }
+
+## Form Per Siswa [/api-pkrs/penjarkes/form/siswa/{idSiswa}]
 
 ### form siswa [GET]
 
@@ -2496,204 +2739,4 @@ Digunakan untuk daftar sekolah di halaman RHP dan share link
                         ]
                     }
                 ]
-            }
-# Group Form and Kuesioner
-
-## Enums [/api-pkrs/penjarkes/enums]
-
-### Get All Enums [GET]
-
-Get all enums used in application
-
-+ Request
-
-    + Headers
-
-            Authorization: Bearer {your-access-token}
-
-+ Response 200 (application/json)
-
-            {
-                "success": true,
-                "updated_at": "2020-12-20 18:20:20",
-                "data": [{
-                    "slug": "golongan_darah",
-                    "data": [{
-                            "id": "a",
-                            "text": "A"
-                        },
-                        {
-                            "id": "b",
-                            "text": "B"
-                        },
-                        {
-                            "id": "ab",
-                            "text": "AB"
-                        },
-                        {
-                            "id": "o",
-                            "text": "O"
-                        }
-                    ]
-                }, {
-                    "slug": "tingkat_pendidikan",
-                    "data": [{
-                            "id": "i",
-                            "text": "I"
-                        },
-                        {
-                            "id": "ii",
-                            "text": "II"
-                        },
-                        {
-                            "id": "iii",
-                            "text": "III"
-                        },
-                        {
-                            "id": "iv",
-                            "text": "IV"
-                        },
-                        {
-                            "id": "v",
-                            "text": "V"
-                        },
-                        {
-                            "id": "vi",
-                            "text": "VI"
-                        },
-                        {
-                            "id": "vii",
-                            "text": "VII"
-                        },
-                        {
-                            "id": "viii",
-                            "text": "VIII"
-                        },
-                        {
-                            "id": "ix",
-                            "text": "IX"
-                        },
-                        {
-                            "id": "x",
-                            "text": "X"
-                        },
-                        {
-                            "id": "xi",
-                            "text": "XI"
-                        },
-                        {
-                            "id": "xii",
-                            "text": "XII"
-                        }
-                    ]
-                }, {
-                    "slug": "jenis_kelamin",
-                    "data": [{
-                            "id": "laki-laki",
-                            "text": "Laki-laki"
-                        },
-                        {
-                            "id": "perempuan",
-                            "text": "Perempuan"
-                        }
-                    ]
-                }, {
-                    "slug": "rhesus",
-                    "data": [{
-                            "id": "positif",
-                            "text": "Positif"
-                        },
-                        {
-                            "id": "negatif",
-                            "text": "Negatif"
-                        }
-                    ]
-                }, {
-                    "slug": "ya_tidak",
-                    "data": [{
-                            "id": "ya",
-                            "text": "Ya"
-                        },
-                        {
-                            "id": "tidak",
-                            "text": "Tidak"
-                        }
-                    ]
-                }, {
-                    "slug": "disabilitas",
-                    "data": [{
-                            "id": "netra",
-                            "text": "Netra"
-                        },
-                        {
-                            "id": "rungu",
-                            "text": "Rungu"
-                        },
-                        {
-                            "id": "rungu_wicara",
-                            "text": "Rungu Wicara"
-                        },
-                        {
-                            "id": "grahita",
-                            "text": "Grahita"
-                        },
-                        {
-                            "id": "daksa",
-                            "text": "Daksa"
-                        },
-                        {
-                            "id": "autisme",
-                            "text": "Autisme"
-                        },
-                        {
-                            "id": "ganda",
-                            "text": "Ganda"
-                        },
-                        {
-                            "id": "adhd",
-                            "text": "Adhd"
-                        }
-                    ]
-                },{
-                    "slug": "jenjang-pendidikan",
-                    "data": [{
-                            "id": "sd",
-                            "text": "SD"
-                        },
-                        {
-                            "id": "smp",
-                            "text": "SMP"
-                        },
-                        {
-                            "id": "sma",
-                            "text": "SMA"
-                        }
-                    ]
-                },{
-                    "slug": "induk-institusi-pendidikan",
-                    "data": [{
-                            "id": "kemenag",
-                            "text": "Kementerian Agama"
-                        },
-                        {
-                            "id": "kemendikbud",
-                            "text": "Kementerian Pendidikan dan Kebudayaan"
-                        },
-                        {
-                            "id": "sma",
-                            "text": "SMA"
-                        }
-                    ]
-                },{
-                    "slug": "jenis-sekolah",
-                    "data": [{
-                            "id": "formal",
-                            "text": "Formal"
-                        },
-                        {
-                            "id": "non-formal",
-                            "text": "Non-Formal"
-                        }
-                    ]
-                }]
             }
