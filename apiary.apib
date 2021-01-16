@@ -164,6 +164,40 @@ Upload profile picture using multipart form data
                 }
             }
 
+# Group Laporan
+
+## Laporan [/api-pkrs/petugas/laporan]
+
+### Request laporan [POST]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
+    + Body
+
+            {
+                "periode_awal": "2020-01-01",
+                "periode_akhir": "2020-12-30",
+                "sekolah" : "1",
+                "kelas" : "x",
+                "format" : "pdf"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "updated_at": "2020-12-20 16:19:20",
+                "data": {
+                    "file_download" : "https://education.github.com/git-cheat-sheet-education.pdf"
+                }
+            }
+
 # Group Rekap Hasil Penjarkes
 
 ## Daftar sekolah [/api-pkrs/petugas/sekolah]
