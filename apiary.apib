@@ -199,6 +199,236 @@ Upload profile picture using multipart form data
                 }
             }
 
+# Group Shared Link
+
+## Shared Link [/api-pkrs/petugas/share-link]
+
+### Request shared link [GET]
+
++ Request
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "success": true,
+                "updated_at": "2020-12-20 18:19:20",
+                "data": [
+                    {
+                        "id" : 1,
+                        "periode": "2020",
+                        "nama_sekolah" : "SMAN 36 Jakarta",
+                        "npsn" : "101992013",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221900",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/6c2f9aa8bf88",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 2,
+                        "periode": "2020",
+                        "nama_sekolah" : "SMAN 37 Jakarta",
+                        "npsn" : "101992014",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221901",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/4484a9e9df3d",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 3,
+                        "periode": "2020",
+                        "nama_sekolah" : "SMAN 38 Jakarta",
+                        "npsn" : "101992015",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221902",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/9830704286b1",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 4,
+                        "periode": "2019",
+                        "nama_sekolah" : "SMAN 39 Jakarta",
+                        "npsn" : "101992016",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221903",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/6959a7929886",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 5,
+                        "periode": "2019",
+                        "nama_sekolah" : "SMAN 40 Jakarta",
+                        "npsn" : "101992016",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221904",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/318954e91e94",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 6,
+                        "periode": "2019",
+                        "nama_sekolah" : "SMAN 41 Jakarta",
+                        "npsn" : "101992014",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221901",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/eefe8e676377",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 7,
+                        "periode": "2019",
+                        "nama_sekolah" : "SMAN 42 Jakarta",
+                        "npsn" : "101992015",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221902",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/a25836a1a7bf",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 8,
+                        "periode": "2019",
+                        "nama_sekolah" : "SMAN 43 Jakarta",
+                        "npsn" : "101992016",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221903",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/f3108676954c",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 9,
+                        "periode": "2019",
+                        "nama_sekolah" : "SMAN 44 Jakarta",
+                        "npsn" : "101992016",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221904",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/6da9619a5f02",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    },
+                    {
+                        "id" : 10,
+                        "periode": "2019",
+                        "nama_sekolah" : "SMAN 45 Jakarta",
+                        "npsn" : "101992016",
+                        "alamat" : "Jalan Garuda No.1",
+                        "kota" : "Jakarta Utara",
+                        "email" : "sma@example.com",
+                        "nomor_telepon" : "021221905",
+                        "total_laki_laki" : 1,
+                        "total_perempuan" : 6,
+                        "jenjang_pendidikan" : "sma",
+                        "induk_institusi_pendidikan" : "kemendikbud",
+                        "kelompok_pemeriksaan" : "formal"
+                        "share_link_url" : "https://example.com/5f019a9626da",
+                        "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+                    }
+                ]
+            }
+
+## Submit Share Link [/api-pkrs/petugas/shared-link]
+
+### Submit Share Link [POST]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: Bearer {your-access-token}
+
+    + Body
+
+            {
+                "periode": "2019",
+                "nama_sekolah" : "SMAN 45 Jakarta",
+                "npsn" : "101992016",
+                "alamat" : "Jalan Garuda No.1",
+                "kota" : "Jakarta Utara",
+                "email" : "sma@example.com",
+                "nomor_telepon" : "021221905",
+                "total_laki_laki" : 1,
+                "total_perempuan" : 6,
+                "jenjang_pendidikan" : "sma",
+                "induk_institusi_pendidikan" : "kemendikbud",
+                "kelompok_pemeriksaan" : "formal"
+                "logo" : "https://static.wikia.nocookie.net/harrypotter/images/a/ae/Hogwartscrest.png"
+            }
+
++ Response 200 (application/json)
+
+            {
+                "success": true,
+                "data" : {
+                        "share_link_url" : "https://example.com/5f019a9626da"
+                    }
+            }
+
 # Group News
 
 ## Berita [/api-pkrs/petugas/berita]
